@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+
+	<!-- 全局 -->
+	<appender name="log.all" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet_all.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="50000000" /> 
+		<param name="MaxBackupIndex" value="30" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 管家代码 -->
+	<appender name="log.trainnet" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="50000000" /> 
+		<param name="MaxBackupIndex" value="50" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 数据抓取 -->
+	<appender name="log.data" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet_data.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="50000000" /> 
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 用户数据（订单等） -->
+	<appender name="log.user" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet_user.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="50000000" />
+		<param name="MaxBackupIndex" value="200" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 用户安全 -->
+	<appender name="log.security" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet_security.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="50000000" />
+		<param name="MaxBackupIndex" value="100" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- ERROR日志分类 -->
+	<appender name="log.error" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet_error.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="50000000" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">  
+            <param name="LevelMax" value="ERROR" />  
+            <param name="LevelMin" value="ERROR" />  
+        </filter>  
+	</appender>
+	
+	<!-- 企业支付  -->
+	<appender name="log.corpor" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet_corpor.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="50000000" />
+		<param name="MaxBackupIndex" value="30" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 三方框架 -->
+	<appender name="log.frame" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet_frame.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="30000000" /> <!-- 设置文件大小 -->
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- PUSH -->
+	<appender name="log.push" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet_push.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="30000000" /> <!-- 设置文件大小 -->
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 内部API -->
+	<appender name="log.inner" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet_inner.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="50000000" /> <!-- 设置文件大小 -->
+		<param name="MaxBackupIndex" value="100" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 开放API -->
+	<appender name="log.openapi" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet_openapi.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="30000000" /> <!-- 设置文件大小 -->
+		<param name="MaxBackupIndex" value="100" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 商城 -->
+	<appender name="log.mall" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet_mall.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="50000000" /> <!-- 设置文件大小 -->
+		<param name="MaxBackupIndex" value="100" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 系统间交互api -->
+	<appender name="log.api" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../logs/trainnet_otherapi.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="50000000" /> <!-- 设置文件大小 -->
+		<param name="MaxBackupIndex" value="100" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%-5p][%-d{yy-MM-dd HH:mm:ss.SSS}][%t][%l]%m%n" />
+		</layout>
+	</appender>
+
+
+	
+	<logger name="com.abc" additivity="false">
+		<level value="info" />
+		<appender-ref ref="log.trainnet" />
+		<appender-ref ref="log.error" />
+		<appender-ref ref="console" />
+	</logger>
+	
+	
+	
+	<root>
+		<level value="info" />
+		<appender-ref ref="log.all" />
+	</root>
+	 
+</log4j:configuration>
