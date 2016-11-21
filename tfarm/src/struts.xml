@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.convention.default.parent.package"
+		value="default" />
+	<!-- <constant name="struts.multipart.maxSize" value="999999999"/> -->
+	<constant name="struts.action.extension" value="do,action,pkpass"/>
+	
+	<constant name= "struts.multipart.maxSize" value="102400000" />
+	
+	<package name="default" extends="json-default">
+		<!-- 用户拦截器定义在该元素下 -->
+		<interceptors>
+			<!-- 定义网站日志拦截器 -->
+			<interceptor name="logInterceptor"
+				class="com.tfarm.interceptor.LogInterceptor" />
+		   
+			<!-- 定义一个包含权限检查的拦截器栈 -->
+			<interceptor-stack name="mydefault">
+				<!-- struts2默认的拦截器栈 -->
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="logInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- 将自定义拦截器栈配置成默认拦截器栈 -->
+		<default-interceptor-ref name="mydefault" />
+
+		<!-- 定义全局Result -->
+		<global-results>
+			<result name="apierror" type="chain">
+				<param name="actionName">apierror</param>
+			</result>
+		</global-results>
+
+	
+	</package>
+
+</struts>
