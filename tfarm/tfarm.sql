@@ -6,6 +6,9 @@ set character_set_results=utf8;
 set character_set_server=utf8;
 
 
+select * from t_bigclassfy;
+
+delete from t_bigclassfy;
 drop database if exists tfarm;--如果tfarm数据库存在就删除
 create database tfarm Character Set  UTF8;--设置数据库字符集为utf8
 use tfarm;--当前数据库改为他farm;
