@@ -12,9 +12,9 @@ import net.sf.json.JSONObject;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Actions;  
-import org.apache.struts2.convention.annotation.Result;  
-import org.apache.struts2.convention.annotation.Results; 
+import org.apache.struts2.convention.annotation.Actions;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,9 +22,9 @@ import org.slf4j.LoggerFactory;
 import com.tfarm.service.TTTService;
 import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
+
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public class TTAction extends ActionSupport
-{
+public class TTAction extends ActionSupport {
 	/**
 	 * 
 	 */
@@ -34,27 +34,26 @@ public class TTAction extends ActionSupport
 	@Resource
 	private TTTService tService;
 
-	
 	/**
 	 * test 的返回list、map到页面
+	 * 
 	 * @return
 	 */
-	
-	// @Action(value = "/mgrbus/getReply", results = { @Result(name = SUCCESS, location = "/admin/test.jsp") })
-	@Action(value = "/getMap", results = { @Result(name = SUCCESS, location = "/admin/aa.jsp"), @Result(name = ERROR, location = "/admin/index.jsp") })
-	public String getMapOrList()
-	{
+
+	// @Action(value = "/mgrbus/getReply", results = { @Result(name = SUCCESS,
+	// location = "/admin/test.jsp") })
+	@Action(value = "/getMap", results = {
+			@Result(name = SUCCESS, location = "/admin/aa.jsp"),
+			@Result(name = ERROR, location = "/admin/index.jsp") })
+	public String getMapOrList() {
 		List<Map<String, Object>> list = this.tService.getTest();
 		ServletActionContext.getRequest().setAttribute("list", list);
 		return SUCCESS;
 	}
-	
-	
+
 	@Action(value = "/test")
-	public void test()
-	{
-		try
-		{
+	public void test() {
+		try {
 			JSONArray json = new JSONArray();
 			JSONObject jo = new JSONObject();
 			jo.put("type", "a");
@@ -83,31 +82,27 @@ public class TTAction extends ActionSupport
 			writeJSON(json);
 
 			List<Map<String, Object>> list = this.tService.getTest();
-			for (int i = 0; i < list.size(); i++)
-			{
+			for (int i = 0; i < list.size(); i++) {
 				Map<String, Object> map = list.get(i);
-				System.out.println((String) map.get("a")+"==="+(String) map.get("b"));
+				System.out.println((String) map.get("a") + "==="
+						+ (String) map.get("b"));
 			}
 
 			HttpServletRequest request = ServletActionContext.getRequest();
 			Map<String, String[]> params = request.getParameterMap();
 			String queryString = "";
-			for (String key : params.keySet())
-			{
+			for (String key : params.keySet()) {
 				String[] values = params.get(key);
-				for (int i = 0; i < values.length; i++)
-				{
+				for (int i = 0; i < values.length; i++) {
 					String value = values[i];
 					queryString += key + "=" + value + "&";
 				}
 			}
-			// 去掉最后一个空格  
-			//queryString = queryString.substring(0, queryString.length() - 1);
+			// 去掉最后一个空格
+			// queryString = queryString.substring(0, queryString.length() - 1);
 			logger.info(queryString);
 
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			logger.error("", e);
 		}
 
@@ -119,8 +114,7 @@ public class TTAction extends ActionSupport
 	 * @param jsonObject
 	 * @throws Exception
 	 */
-	protected void writeJSON(Object jsonObject) throws Exception
-	{
+	protected void writeJSON(Object jsonObject) throws Exception {
 		Gson gson = new Gson();
 		String result = gson.toJson(jsonObject);
 		HttpServletResponse response = ServletActionContext.getResponse();

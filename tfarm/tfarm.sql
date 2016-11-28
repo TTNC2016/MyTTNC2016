@@ -6,6 +6,15 @@ set character_set_results=utf8;
 set character_set_server=utf8;
 
 
+select * from t_bigclassfy;
+
+select * from t_smallclassfy;
+
+select fsclass_id,fsclass_name,small.fbclass_id,
+fbclass_name,small.create_time from t_smallclassfy small,t_bigclassfy big 
+where small.fbclass_id=big.fbclass_id;
+
+delete from t_bigclassfy where blcass_id=null;
 drop database if exists tfarm;--如果tfarm数据库存在就删除
 create database tfarm Character Set  UTF8;--设置数据库字符集为utf8
 use tfarm;--当前数据库改为他farm;
@@ -465,3 +474,6 @@ CREATE TABLE `t_user` (
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
+
+
+
