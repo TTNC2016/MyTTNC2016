@@ -1,7 +1,9 @@
-#Thu Nov 24 14:49:07 CST 2016
+#Fri Nov 25 16:50:25 CST 2016
 eclipse.preferences.version=1
 encoding//WebRoot/WEB-INF/jdbc-dev.properties=UTF-8
 encoding//WebRoot/admin/index.jsp=UTF-8
 encoding//WebRoot/bigclassfy/list.jsp=UTF-8
+encoding//WebRoot/bigclassfy/modify.jsp=UTF-8
+encoding//WebRoot/left.jsp=UTF-8
 encoding/<project>=UTF-8
 encoding/tfarm.sql=UTF-8
