@@ -64,6 +64,35 @@
 			<td align="center" style="font-size: 16"><a
 				href="ownerFindAll.action" target="main">擁有者列表</a></td>
 		</tr>
+		
+		
+		
+		<tr>
+			<td align="center" style="font-size: 24;background-color: #aabbcc">部门管理</td>
+		</tr>
+		<tr>
+			<td align="center" style="font-size: 16"><a
+				href="department/add.jsp" target="main">部门添加</a></td>
+		</tr>
+		<tr>
+			<td align="center" style="font-size: 16"><a
+				href="departFindAll.action" target="main">部门列表</a></td>
+		</tr>
+		
+		<tr>
+			<td align="center" style="font-size: 24;background-color: #aabbcc">员工管理</td>
+		</tr>
+		<tr>
+			<td align="center" style="font-size: 16"><a
+				href="empFindDepart.action" target="main">员工添加</a></td>
+		</tr>
+		<tr>
+			<td align="center" style="font-size: 16"><a
+				href="empFindAll.action" target="main">员工列表</a></td>
+		</tr>
+		
+		
+		
 	</table>
 
 </body>
