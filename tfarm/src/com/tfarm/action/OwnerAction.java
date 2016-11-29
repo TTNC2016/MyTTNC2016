@@ -94,7 +94,7 @@ public class OwnerAction extends ActionSupport {
 		}
 	}
 
-	@Action(value = "/ownerFindByiId", results = {
+	@Action(value = "/ownerFindById", results = {
 			@Result(name = SUCCESS, location = "/owner/modify.jsp"),
 			@Result(name = ERROR, location = "/admin/index.jsp") })
 	public String findById() {
@@ -102,4 +102,5 @@ public class OwnerAction extends ActionSupport {
 		ServletActionContext.getRequest().setAttribute("map", owner);
 		return SUCCESS;
 	}
+
 }

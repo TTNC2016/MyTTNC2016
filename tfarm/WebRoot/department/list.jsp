@@ -64,27 +64,21 @@
 					onclick="checkAll()">
 				</td>
 				<td align="center">编号</td>
-				<td align="center">姓名</td>
-				<td align="center">性别</td>
-				<td align="center">手机号码</td>
-				<td align="center">地址</td>
+				<td align="center">部门名称</td>
 				<td align="center">操作</td>
 			</tr>
 			<c:choose>
 				<c:when test="${not empty list }">
-					<c:forEach items="${list}" var="owner" varStatus="status">
+					<c:forEach items="${list}" var="depart" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="one"
-								value="${owner.fowner_id}">
+								value="${depart.fdepart_id}">
 							</td>
-							<td align="center">${owner.fowner_id}</td>
-							<td align="center">${owner.fowner_name}</td>
-							<td align="center">${owner.fowner_sex}</td>
-							<td align="center">${owner.fowner_telephone}</td>
-							<td align="center">${owner.fowner_address}</td>
+							<td align="center">${depart.fdepart_id}</td>
+							<td align="center">${depart.fdepart_name}</td>
 							<td align="center"><a
-								href="ownerFindById.action?ownerId=${owner.fowner_id }">修改</a>|<a
-								href="ownerDeleteOne.action?ownerId=${owner.fowner_id }">删除</a></td>
+								href="departFindById.action?departId=${depart.fdepart_id }">修改</a>|<a
+								href="departDeleteOne.action?departId=${depart.fdepart_id }">删除</a></td>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -98,7 +92,7 @@
 			<tr>
 				<td align="center"><input type="button" id="deleteall"
 					onclick="delAll()" value="全部删除"></td>
-				<td align="center"><a href="owner/add.jsp">增加</a>
+				<td align="center"><a href="department/add.jsp">增加</a>
 				</td>
 			</tr>
 		</table>
