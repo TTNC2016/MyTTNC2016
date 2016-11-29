@@ -44,7 +44,7 @@
 
 		}
 		if (c > 0) {
-			del.action = "deleteAll.action";
+			del.action = "";
 			del.submit();
 		} else {
 			alert("请先选中一个要删除的记录！");
@@ -63,26 +63,28 @@
 				<td><input type="checkbox" id="all" name="all"
 					onclick="checkAll()">
 				</td>
-				<td align="center">分类编号</td>
-				<td align="center">分类名称</td>
-				<td align="center">所属分类</td>
-				<td align="center">创建时间</td>
+				<td align="center">编号</td>
+				<td align="center">姓名</td>
+				<td align="center">性别</td>
+				<td align="center">手机号码</td>
+				<td align="center">地址</td>
 				<td align="center">操作</td>
 			</tr>
 			<c:choose>
 				<c:when test="${not empty list }">
-					<c:forEach items="${list}" var="sclassfy" varStatus="status">
+					<c:forEach items="${list}" var="owner" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="one"
-								value="${sclassfy.fsclass_id}">
+								value="${owner.fowner_id}">
 							</td>
-							<td align="center">${sclassfy.fsclass_id}</td>
-							<td align="center">${sclassfy.fsclass_name}</td>
-							<td align="center">${sclassfy.fbclass_name}</td>
-							<td align="center">${sclassfy.create_time}</td>
+							<td align="center">${owner.fowner_id}</td>
+							<td align="center">${owner.fowner_name}</td>
+							<td align="center">${owner.fowner_sex}</td>
+							<td align="center">${owner.fowner_telephone}</td>
+							<td align="center">${owner.fowner_adress}</td>
 							<td align="center"><a
-								href="sclassfyfindbyid.action?sclassId=${sclassfy.fsclass_id }">修改</a>|<a
-								href="sclassfydeleteOne.action?bclassId=${sclassfy.fsclass_id}">删除</a></td>
+								href="ownerFindById.action?ownerId=${owner.fowner_id }">修改</a>|<a
+								href="ownerDeleteOne.action?ownerId=${owner.fowner_id }">删除</a></td>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -96,7 +98,7 @@
 			<tr>
 				<td align="center"><input type="button" id="deleteall"
 					onclick="delAll()" value="全部删除"></td>
-				<td align="center"><a href="sclassfindBigClassAction.action">增加</a>
+				<td align="center"><a href="owner/add.jsp">增加</a>
 				</td>
 			</tr>
 		</table>

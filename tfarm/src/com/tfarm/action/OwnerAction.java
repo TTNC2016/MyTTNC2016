@@ -94,7 +94,7 @@ public class OwnerAction extends ActionSupport {
 		}
 	}
 
-	@Action(value = "/ownerFindbyid", results = {
+	@Action(value = "/ownerFindByiId", results = {
 			@Result(name = SUCCESS, location = "/owner/modify.jsp"),
 			@Result(name = ERROR, location = "/admin/index.jsp") })
 	public String findById() {
