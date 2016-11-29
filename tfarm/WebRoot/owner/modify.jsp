@@ -26,34 +26,40 @@
 </head>
 
 <body>
-	<form action="sclassfyUpdateAction.action" method="post">
+	<form action="ownerUpdateAction.action" method="post">
 		<table align="center" height="100" border="0" bordercolor="">
 			<tr>
-				<td align="right">分类id</td>
-				<td align="left"><input name="sclassfy.sclassfyId"
-					value="${map.fsclass_id}" readonly="readonly">
+				<td align="right">编号</td>
+				<td align="left"><input name="owner.ownerId"
+					value="${map.fowner_id}" readonly="readonly">
 				</td>
 			</tr>
 
-			<tr>
-				<td align="right">分类名称</td>
-				<td align="left"><input name="sclassfy.sclassfyName"
-					value="${map.fsclass_name}">
+		<tr>
+				<td align="right">姓名</td>
+				<td align="left"><input name="owner.ownerName" value="${map.fowner_name }">
 				</td>
 			</tr>
-
 			<tr>
-				<td align="right">所属分类</td>
-				<td align="left"><select name="sclassfy.bclassId"
-					style="width: 150px">
-						<c:forEach items="${list}" var="bigclassfy">
-							<option value="${bigclassfy.fbclass_id}"
-								<c:if test="${map.fbclass_id==bigclassfy.fbclass_id }">selected="selected" </c:if>>${bigclassfy.fbclass_name
-								}</option>
-						</c:forEach>
-				</select>
+			<td align="right">性别</td>
+				<td align="left">
+				
+				<input type="radio" <c:if test="${owner.ownerSex=='男' }">checked="checked"</c:if>  name="owner.ownerSex" value="男">男
+				<input type="radio"<c:if test="${owner.ownerSex=='女' }">checked="checked"</c:if>  name="owner.ownerSex" value="女">女
 				</td>
 			</tr>
+			
+			<tr>
+				<td align="right">手机号码</td>
+				<td align="left"><input name="owner.ownerTelephone">
+				           </td>
+			</tr>
+			<tr>
+				<td align="right">家庭住址</td>
+				<td align="left"><input name="owner.ownerAddress">
+				           </td>
+			</tr>
+			
 
 			<tr>
 				<td align="center" colspan="2">
