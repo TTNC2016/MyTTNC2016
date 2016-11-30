@@ -61,30 +61,54 @@
 		<table align="center">
 			<tr>
 				<td><input type="checkbox" id="all" name="all"
-					onclick="checkAll()">
-				</td>
+					onclick="checkAll()"></td>
 				<td align="center">编号</td>
-				<td align="center">姓名</td>
-				<td align="center">性别</td>
+				<td align="center">个人照片</td>
+				<td align="center">用户名</td>
+				<td align="center">登录密码</td>
+				<td align="center">真实姓名</td>
+				<td align="center">出生日期</td>
+				<td align="center">身份证号码</td>
 				<td align="center">手机号码</td>
-				<td align="center">地址</td>
+				<td align="center">家庭住址</td>
+				<td align="center">邮件地址</td>
+				<td align="center">教育程度</td>
+				<td align="center">专业</td>
+				<td align="center">毕业院校</td>
+				<td align="center">入职时间</td>
+				<td align="center">角色名称</td>
+				<td align="center">所属部门</td>
+
+
 				<td align="center">操作</td>
 			</tr>
 			<c:choose>
 				<c:when test="${not empty list }">
-					<c:forEach items="${list}" var="owner" varStatus="status">
+					<c:forEach items="${list}" var="emp" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="one"
-								value="${owner.fowner_id}">
-							</td>
-							<td align="center">${owner.fowner_id}</td>
-							<td align="center">${owner.fowner_name}</td>
-							<td align="center">${owner.fowner_sex}</td>
-							<td align="center">${owner.fowner_telephone}</td>
-							<td align="center">${owner.fowner_address}</td>
+								value="${emp.femp_id}"></td>
+							<td align="center">${emp.femp_id}</td>
+							<td align="center">${emp.femp_pic}</td>
+							<td align="center">${emp.femp_username}</td>
+							<td align="center">${emp.femp_password}</td>
+							<td align="center">${emp.femp_realname}</td>
+							<td align="center">${emp.femp_birthday}</td>
+							<td align="center">${emp.femp_idcard}</td>
+							<td align="center">${emp.femp_telephone}</td>
+							<td align="center">${emp.femp_address}</td>
+							<td align="center">${emp.femp_email}</td>
+							<td align="center">${emp.femp_edu}</td>
+							<td align="center">${emp.femp_major}</td>
+							<td align="center">${emp.femp_school}</td>
+							<td align="center">${emp.femp_intime}</td>
+							<td align="center">${emp.femp_rolename}</td>
+							<td align="center">${emp.fdepart_name}</td>
+							
 							<td align="center"><a
-								href="ownerFindById.action?ownerId=${owner.fowner_id }">修改</a>|<a
-								href="ownerDeleteOne.action?ownerId=${owner.fowner_id }">删除</a></td>
+								href="empFindById.action?empId=${emp.femp_id }">修改</a>|<a
+								href="empDeleteOne.action?empId=${emp.femp_id }">删除</a>
+							</td>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -97,9 +121,9 @@
 			</c:choose>
 			<tr>
 				<td align="center"><input type="button" id="deleteall"
-					onclick="delAll()" value="全部删除"></td>
-				<td align="center"><a href="owner/add.jsp">增加</a>
+					onclick="delAll()" value="全部删除">
 				</td>
+				<td align="center"><a href="empFindDepart.action">增加</a></td>
 			</tr>
 		</table>
 

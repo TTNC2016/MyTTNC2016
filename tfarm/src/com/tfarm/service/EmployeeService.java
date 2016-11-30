@@ -75,7 +75,8 @@ public class EmployeeService {
 				+ emp.getEmpSchool().trim() + "',femp_intime='"
 				+ emp.getEmpInTime() + "',femp_rolename='"
 				+ emp.getEmpRoleName() + "',fdepart_id='" + emp.getDepartId()
-				+ "',modify_time where femp_id='" + emp.getEmpId().trim() + "'";
+				+ "',modify_time=now() where femp_id='" + emp.getEmpId().trim()
+				+ "'";
 		return this.baseDao.update(sql);
 	}
 
@@ -85,7 +86,7 @@ public class EmployeeService {
 	}
 
 	public int delete(String empId) {
-		String sql = "delete  from t_employee where fowner_id='" + empId.trim()
+		String sql = "delete  from t_employee where femp_id='" + empId.trim()
 				+ "'";
 		return this.baseDao.update(sql);
 	}
