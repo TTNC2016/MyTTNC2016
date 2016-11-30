@@ -20,7 +20,25 @@
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="js/src/bootstrapDatepickr-1.0.0.css">
+<script src="js/src/jquery-1.7.2.min.js"></script>
+<script src="js/src/bootstrap.min.js"></script>
+<script src="js/dist/bootstrapDatepickr-1.0.0.min.js"></script>
+<script>
 
+	$(document).ready(function() {
+		//$("#calendar").bootstrapDatepickr();
+		$("#calendar").bootstrapDatepickr({
+			date_format : "Y-m-d"
+		});
+		$("#calendar1").bootstrapDatepickr({
+			date_format : "Y-m-d"
+		});
+		//$("#calendar2").bootstrapDatepickr({date_format: "l, do F Y"});
+	});
+</script>
 </head>
 
 <body>
@@ -49,7 +67,7 @@
 				<td align="left"><input name="emp.empRealName">
 				</td>
 				<td align="right">出生日期</td>
-				<td align="left"><input name="emp.empBirthday">
+				<td align="left"><input id="calendar" name="emp.empBirthday">
 				</td>
 			</tr>
 			
@@ -83,7 +101,7 @@
 				<td align="left"><input name="emp.empSchool">
 				</td>
 				<td align="right">入职时间</td>
-				<td align="left"><input name="emp.empInTime">
+				<td align="left"><input id="calendar1" name="emp.empInTime">
 				</td>
 			</tr>
 				<tr>

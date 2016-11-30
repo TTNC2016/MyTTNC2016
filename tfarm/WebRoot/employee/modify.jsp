@@ -22,7 +22,24 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="js/src/bootstrapDatepickr-1.0.0.css">
+<script src="js/src/jquery-1.7.2.min.js"></script>
+<script src="js/src/bootstrap.min.js"></script>
+<script src="js/dist/bootstrapDatepickr-1.0.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#calendar").bootstrapDatepickr({
+			date_format : "Y-m-d"
+		});
+		$("#calendar1").bootstrapDatepickr({
+			date_format : "Y-m-d"
+		});
+	});
+</script>
 </head>
 
 <body>
@@ -55,7 +72,7 @@
 					value="${map.femp_realname }">
 				</td>
 				<td align="right">出生日期</td>
-				<td align="left"><input name="emp.empBirthday"
+				<td align="left"><input id="calendar1" name="emp.empBirthday"
 					value="${map.femp_birthday }">
 				</td>
 			</tr>
@@ -97,7 +114,7 @@
 					value="${map.femp_school }">
 				</td>
 				<td align="right">入职时间</td>
-				<td align="left"><input name="emp.empInTime"
+				<td align="left"><input name="emp.empInTime" id="calendar1"
 					value="${map.femp_intime }">
 				</td>
 			</tr>
