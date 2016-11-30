@@ -32,7 +32,7 @@
 				<td align="left"><input name="emp.empId">
 				</td>
 				<td align="right">个人照片</td>
-				<td align="left"><input name="emp.empName">
+				<td align="left"><input name="emp.empPic">
 				</td>
 			</tr>
 			
