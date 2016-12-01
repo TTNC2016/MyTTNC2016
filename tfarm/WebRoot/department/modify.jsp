@@ -26,40 +26,23 @@
 </head>
 
 <body>
-	<form action="ownerUpdateAction.action" method="post">
+	<form action="departUpdateAction.action" method="post">
 		<table align="center" height="100" border="0" bordercolor="">
 			<tr>
-				<td align="right">编号</td>
-				<td align="left"><input name="owner.ownerId"
-					value="${map.fowner_id}" readonly="readonly">
+				<td align="right">部门编号</td>
+				<td align="left"><input name="depart.departId"
+					value="${map.fdepart_id}" readonly="readonly">
 				</td>
 			</tr>
 
-		<tr>
-				<td align="right">姓名</td>
-				<td align="left"><input name="owner.ownerName" value="${map.fowner_name }">
+			<tr>
+				<td align="right">部门名称</td>
+				<td align="left"><input name="depart.departName"
+					value="${map.fdepart_name}">
 				</td>
 			</tr>
-			<tr>
-			<td align="right">性别</td>
-				<td align="left">
-				
-				<input type="radio" <c:if test="${map.fowner_sex=='男' }">checked="checked"</c:if>  name="owner.ownerSex" value="男">男
-				<input type="radio"<c:if test="${map.fowner_sex=='女' }">checked="checked"</c:if>  name="owner.ownerSex" value="女">女
-				</td>
-			</tr>
-			
-			<tr>
-				<td align="right">手机号码</td>
-				<td align="left"><input name="owner.ownerTelephone" value="${map.fowner_telephone }">
-				           </td>
-			</tr>
-			<tr>
-				<td align="right">家庭住址</td>
-				<td align="left"><input name="owner.ownerAddress" value="${map.fowner_address }">
-				           </td>
-			</tr>
-			
+
+		
 
 			<tr>
 				<td align="center" colspan="2">
